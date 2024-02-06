@@ -1,0 +1,9 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+<h1>Foglalj időpontot!</h1>
+{% for day in days  %}
+    <a class='text-xl w3-btn w3-green' href="{% url 'main:foglalas4' tipus honap day %}">{{ day }}</a>
+{% endfor %}
+
+{% endblock content %}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+
+    <!-- W3CSS-->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- MY CSS -->
+    <link rel="stylesheet" href="{% static "main/css" %}">
+
+    {% block head %}{% endblock head %}
+</head>
+<body>
+    <h1 class="w3-blue text-3xl text-center pt-4">Welcome to my site!</h1>
+
+
+    {% block content %}
+    {% endblock content %}
+</body>
+</html>
