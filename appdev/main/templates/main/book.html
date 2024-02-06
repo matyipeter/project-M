@@ -1,9 +1,15 @@
 {% extends "main/base.html" %}
 
 {% block content %}
-<h1>Foglalj időpontot!</h1>
-{% for day in days  %}
-    <a class='text-xl w3-btn w3-green' href="{% url 'main:foglalas4' tipus honap day %}">{{ day }}</a>
-{% endfor %}
+
+<h1>Az időpontod:</h1>
+<div>{{honap}} {{nap}}. {{idopont}}</div>
+
+<h3>Add meg az alábbi adatokat:</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Submit" name="" id="">
+</form>
 
 {% endblock content %}

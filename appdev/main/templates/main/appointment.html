@@ -3,31 +3,15 @@
 {% block title %}Időpontfoglalás{% endblock title %}
 
 {% block content %}
-    {% if tipus == "gyerek" %}
-        <p>gyerek</p>
-    {% elif tipus == "felnott" %}
-        <h1 class="text-center p-4 text-3xl">Válassz hónapot:</h1>
-        <div class="grid grid-cols-4 gap-4 text-center m-6">
-            {% for honap in honapok  %}
-                <form action="" method="POST">{% csrf_token %}<input class='text-xl w3-btn w3-green' type="submit" value="{{honap}}" name="honap" id=""></form>
-            {% endfor %}
-        </div>
 
-    {% else %}
-        <form action="" method="POST">
-            {% csrf_token %}
-            <select name="dropdown" id="">
-                <option selected="selected" disabled>Rendelés típusa</option>
-                <option value="gyerek">Gyerek</option>
-                <option value="felnott">Felnőtt</option>
-            </select>
-            <input type="submit" name="" value="Submit" class="w3-button w3-green" id="">
-        </form>
-    {% endif %}
+    <h1 class="text-center m-6 p-6 text-4xl">{{month}}</h1>
+    <h2 class="text-center m-6 p-6 text-xl">Válasszon napot</h2>
+    <div class="grid grid-cols-2 text-center">
+        {% for appointment in object_list  %}
+            <a href="{% url 'main:foglalas2' month appointment.nap %}" class="text-orange-900 text-xl">{{appointment.nap}}</a>
 
+        {% endfor %}
+    </div>
 
-
-
-    
 
 {% endblock content %}

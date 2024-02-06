@@ -1,0 +1,15 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+<h1 class="text-center m-4 text-3xl">Válassz időpontot:</h1>
+
+<div class="grid grid-cols-1 text-center">
+    {% for appointment in object_list %}
+        <a href="{% url 'main:reserve' honap nap appointment %}" class="text-red">{{appointment}}</a>
+    {% endfor %}
+
+
+</div>
+
+
+{% endblock content %}

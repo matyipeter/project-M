@@ -4,11 +4,12 @@ from django.db import models
 
 
 class Appointment(models.Model):
-    tipus = models.CharField(max_length=100)
     honap = models.CharField(max_length=100)
     nap = models.IntegerField()
     idopont = models.TimeField()
-    free = True
+    free = models.BooleanField(default=True)
+
+    # FOREIGN KEY
 
     def reserve(self):
         self.free = False
@@ -16,4 +17,6 @@ class Appointment(models.Model):
     def __str__(self):
         return self.honap
         
+
+# class Customer(models.Model)
     
