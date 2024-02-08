@@ -9,6 +9,11 @@
 
 <form method="POST">
     {% csrf_token %}
+    <label for="név">Teljes név:</label>
+    <input type="text" name="full_name">
+    <label for="email">Email-cím:</label>
+    <input type="email" name="email">
+
     <input type="submit" value="Submit" name="" id="">
 </form>
 

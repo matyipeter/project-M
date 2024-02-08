@@ -1,1 +1,91 @@
 {% extends "main/base.html" %}
+{% load static %}
+
+
+{% block content %}
+<header class="bg-white">
+  <nav class="flex justify-between items-center w-[92%]  mx-auto">
+      <div>
+          <img class="cursor-pointer h-24" src="{% static 'main/images/nkl-logo.png' %}" alt="...">
+      </div>
+      <div
+          class="nav-links duration-500 md:static absolute bg-white md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto  w-full flex px-5 opacity-80">
+          <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
+              <li>
+                  <a class="hover:text-gray-500" href="#">Árazás</a>
+              </li>
+              <li>
+                  <a class="hover:text-gray-500" href="#vizsgalatok">Vizsgálatok</a>
+              </li>
+              <li>
+                  <a class="hover:text-gray-500" href="#footer">Kapcsolat</a>
+              </li>
+              <li>
+                  <a class="hover:text-gray-500 bg-yellow-300 p-4" href="#">Időpontfoglalás</a>
+              </li>
+          </ul>
+      </div>
+      <div class="flex items-center gap-6">
+          <ion-icon onclick="onToggleMenu(this)" name="menu" class="text-3xl cursor-pointer md:hidden"></ion-icon>
+      </div>
+    </nav>
+    <img class="h-auto max-w-full md:hidden" src="{% static 'main/images/nkl2.jpg' %}" alt="">
+</header>
+<main>
+  <section class="container mx-auto p-8">
+    <h2 class="text-4xl font-bold text-center mb-8" id="vizsgalatok">Vizsgálatok</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {% for service in object_list %}
+          <div class="bg-white rounded-lg overflow-hidden shadow-md">
+              <img src="{% static 'main/images/nklabor.jpg' %}" alt="Service 1" class="w-full h-40 object-cover">
+              <div class="p-4">
+                  <h3 class="text-xl font-semibold mb-2 text-red-500">{{service.name}}</h3>
+                  <p class="text-gray-600">Description of the service goes here. You can provide details about what this service offers and its benefits.</p>
+              </div>
+          </div>
+        {% endfor %}
+    </div>
+  </section>
+  <section>
+
+  </section>
+</main>
+
+
+
+
+  
+<footer id="#footer" class="bg-coral">
+  <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+    <!-- Column 1: Logo and About -->
+    <div>
+        <h3 class="text-xl font-bold mb-4">Your Logo</h3>
+        <p class="text-gray-400">A brief description of your company or website. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+
+    <!-- Column 2: Quick Links -->
+    <div>
+        <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+        <ul>
+            <li><a href="#" class="hover:text-gray-300">Home</a></li>
+            <li><a href="#" class="hover:text-gray-300">Services</a></li>
+            <li><a href="#" class="hover:text-gray-300">About Us</a></li>
+            <li><a href="#" class="hover:text-gray-300">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Column 3: Social Media -->
+    <div>
+        <h3 class="text-xl font-bold mb-4">Connect With Us</h3>
+        <div class="flex space-x-4 text-terracotta">
+            <a href="#" class=""><i class="fab fa-facebook"></i> 06703250310</a>
+            <a href="#" class=""><i class="fab fa-twitter"></i> nagykovacsilaborszolgaltatas@gmail.com</a>
+            <a href="#" class=""><i class="fab fa-linkedin"></i> Kossuth Lajos u. 33., Nagykovácsi 2094</a>
+            <a href="#" class=""><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+  </div>
+</footer>
+
+{% endblock content %}

@@ -3,12 +3,13 @@ from django.urls import reverse
 from django.views.generic import View, TemplateView, ListView
 from datetime import datetime
 
-from .models import Appointment
+from .models import Appointment, Customer, Service
 
 # Create your views here.
 
-def index(request):
-    return render(request, "main/index.html")
+class Index(ListView):
+    template_name = "main/index.html"
+    queryset = Service.objects.all()
 
 
 class Idopontok(ListView):
@@ -39,7 +40,14 @@ class Reserve(View):
         return render(request, template, {"honap":honap,"nap":nap,"idopont":idopont})
     
     def post(self, request, honap, nap, idopont):
+        full_name = request.POST["full_name"]
+        email= request.POST["email"]
+
+        form = Customer(full_name=full_name, email=email)
+        form.save()
+
         appo = Appointment.objects.get(honap=honap, nap=nap, idopont=idopont)
+        appo.customer = form
         appo.reserve()
         appo.save()
         return redirect("main:index")

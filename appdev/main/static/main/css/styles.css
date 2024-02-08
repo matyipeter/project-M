@@ -1,0 +1,24 @@
+body {
+    scroll-behavior: smooth;
+}
+
+
+#navbar-default {
+    transition: transform 0.3s ease-in-out;
+}
+
+.kep {
+    position: fixed;
+}
+
+.text-terracotta {
+    color: #E8A87C;
+}
+
+.text-coral {
+    color: #41b3a3;
+}
+
+.bg-coral {
+    background-color:#41b3a3;
+}

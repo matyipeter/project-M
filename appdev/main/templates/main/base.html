@@ -6,22 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock title %}</title>
 
-    <!-- W3CSS-->
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
+    <!--w3css-->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
     <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- MY CSS -->
-    <link rel="stylesheet" href="{% static "main/css" %}">
+    <link rel="stylesheet" href="{% static "main/css/styles.css" %}">
+
+    <script defer src="{% static 'main/js/script.js' %}"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 
     {% block head %}{% endblock head %}
 </head>
-<body>
-    <h1 class="w3-blue text-3xl text-center pt-4">Welcome to my site!</h1>
-
-
+<body class="bg-gray-100">
     {% block content %}
     {% endblock content %}
+  
 </body>
 </html>
