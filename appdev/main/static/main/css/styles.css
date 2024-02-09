@@ -22,3 +22,14 @@ body {
 .bg-coral {
     background-color:#41b3a3;
 }
+
+.text-myred {
+    color: #e27d60;
+}
+
+.big-image {
+    background-image: url("../images/edited-nkl2.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    
+}

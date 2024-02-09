@@ -4,15 +4,15 @@
 
 {% block content %}
 <header class="bg-white">
-  <nav class="flex justify-between items-center w-[92%]  mx-auto">
+    <nav class="flex justify-between items-center w-[92%]  mx-auto">
       <div>
-          <img class="cursor-pointer h-24" src="{% static 'main/images/nkl-logo.png' %}" alt="...">
+          <img class="cursor-pointer h-28" src="{% static 'main/images/nkl-logo.png' %}" alt="...">
       </div>
       <div
           class="nav-links duration-500 md:static absolute bg-white md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto  w-full flex px-5 opacity-80">
           <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
               <li>
-                  <a class="hover:text-gray-500" href="#">Árazás</a>
+                  <a class="hover:text-gray-500" href="#arak">Árazás</a>
               </li>
               <li>
                   <a class="hover:text-gray-500" href="#vizsgalatok">Vizsgálatok</a>
@@ -29,8 +29,28 @@
           <ion-icon onclick="onToggleMenu(this)" name="menu" class="text-3xl cursor-pointer md:hidden"></ion-icon>
       </div>
     </nav>
-    <img class="h-auto max-w-full md:hidden" src="{% static 'main/images/nkl2.jpg' %}" alt="">
+    
 </header>
+
+
+<div class="w-full h-full flex items-center justify-center big-image p-1 md:p-12">
+    <div class="text-white text-center">
+        <h2 class="md:text-4xl text-xl font-bold mb-4 text-red-500">Üdvözöllek a Nagykovácsi laborszolgáltatás weboldalán!</h2>
+        <p class="text-lg text-red-600">Foglald le időpontodat időben!</p>
+        <a href="#" class="mt-4 inline-block bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded"><i class="fa-solid fa-calendar-check"></i> Időpontfoglalás</a>
+        <div class="hidden md:block">
+            <h3>Rendelési idő</h3>
+            <div>Hétfő</div>
+            <div>Csütörtök</div>
+        </div>
+    </div>
+</div>
+</div>
+<h2 class="text-4xl font-bold text-center mt-8 mb-8" id="akt">Aktualitások</h2>
+<div class="aktualitasok grid grid-cols-1 md:grid-cols-2">
+    <div></div>
+    <div></div>
+</div>
 <main>
   <section class="container mx-auto p-8">
     <h2 class="text-4xl font-bold text-center mb-8" id="vizsgalatok">Vizsgálatok</h2>
@@ -48,6 +68,10 @@
     </div>
   </section>
   <section>
+    <h2 class="text-4xl font-bold text-center mb-8" id="arak">Árak</h2>
+  </section>
+
+  <section class="container mx-auto p-8">
 
   </section>
 </main>
@@ -57,32 +81,18 @@
 
   
 <footer id="#footer" class="bg-coral">
-  <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+  <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
     <!-- Column 1: Logo and About -->
     <div>
         <h3 class="text-xl font-bold mb-4">Your Logo</h3>
-        <p class="text-gray-400">A brief description of your company or website. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p class="text-white">A brief description of your company or website. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </div>
-
-    <!-- Column 2: Quick Links -->
     <div>
-        <h3 class="text-xl font-bold mb-4">Quick Links</h3>
-        <ul>
-            <li><a href="#" class="hover:text-gray-300">Home</a></li>
-            <li><a href="#" class="hover:text-gray-300">Services</a></li>
-            <li><a href="#" class="hover:text-gray-300">About Us</a></li>
-            <li><a href="#" class="hover:text-gray-300">Contact</a></li>
-        </ul>
-    </div>
-
-    <!-- Column 3: Social Media -->
-    <div>
-        <h3 class="text-xl font-bold mb-4">Connect With Us</h3>
-        <div class="flex space-x-4 text-terracotta">
-            <a href="#" class=""><i class="fab fa-facebook"></i> 06703250310</a>
-            <a href="#" class=""><i class="fab fa-twitter"></i> nagykovacsilaborszolgaltatas@gmail.com</a>
-            <a href="#" class=""><i class="fab fa-linkedin"></i> Kossuth Lajos u. 33., Nagykovácsi 2094</a>
-            <a href="#" class=""><i class="fab fa-instagram"></i></a>
+        <h3>Kapcsolatfelvétel</h3>
+        <div class="flex space-x-3 text-white p-4">
+            <a href="#" class=""><i class="fa-solid fa-phone"></i> 06703250310</a>
+            <a href="#" class=""><i class="fa-regular fa-envelope"></i> nagykovacsilaborszolgaltatas@gmail.com</a>
+            <a href="#" class=""><i class="fa-solid fa-house-flag"></i><br>Kossuth Lajos u. 33. Nagykovácsi</a>
         </div>
     </div>
   </div>
