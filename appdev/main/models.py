@@ -13,6 +13,7 @@ class Customer(models.Model):
 class Appointment(models.Model):
     honap = models.CharField(max_length=100)
     nap = models.IntegerField()
+    nap_neve = models.CharField(max_length=20, default="hetfo")
     idopont = models.TimeField()
     free = models.BooleanField(default=True)
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)

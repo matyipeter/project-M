@@ -1,4 +1,4 @@
-body {
+html {
     scroll-behavior: smooth;
 }
 
@@ -30,6 +30,5 @@ body {
 .big-image {
     background-image: url("../images/edited-nkl2.png");
     background-repeat: no-repeat;
-    background-size: 100%;
-    
+    background-size: cover;
 }

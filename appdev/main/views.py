@@ -16,8 +16,9 @@ class Idopontok(ListView):
 
     template_name = "main/appointment.html"
     honapok = ["Január", "Február", "Március", "Április", "Május", "Június"]
+    napok = ["Hétfő"]
     current_month = honapok[(datetime.now().month)-1]
-    queryset = Appointment.objects.filter(free=True, honap=current_month).values("nap").distinct()
+    queryset = Appointment.objects.filter(free=True, honap=current_month).values("nap").distinct().order_by("nap")
 
 
     def get_context_data(self, **kwargs):

@@ -3,15 +3,20 @@
 {% block title %}Időpontfoglalás{% endblock title %}
 
 {% block content %}
+<div class="container mx-auto mt-8 p-8">
+    <h1 class="text-center m-6 p-6 text-5xl">{{month}}</h1>
+    <h2 class="text-4xl font-bold mb-8">Elérhető napok:</h1>
 
-    <h1 class="text-center m-6 p-6 text-4xl">{{month}}</h1>
-    <h2 class="text-center m-6 p-6 text-xl">Válasszon napot</h2>
-    <div class="grid grid-cols-2 text-center">
-        {% for appointment in object_list  %}
-            <a href="{% url 'main:foglalas2' month appointment.nap %}" class="text-orange-900 text-xl">{{appointment.nap}}</a>
-
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {% for appointment in object_list %}
+            <a href="{% url 'main:foglalas2' month appointment.nap %}" class="rounded-lg overflow-hidden shadow-md p-4 hover:bg-white hover:text-blue-500 text-white text-xl bg-teal-500 text-myred w-[80%]">{{month}} {{appointment.nap}}</a>
         {% endfor %}
     </div>
+    <div class="informacio mt-24">
+        <h2 class="text-center bg-yellow-500 text-5xl p-8 rounded">A rendelések napjai csak a hétfő és csütörtöki napok</h2>
+    </div>
+    
+</div>
 
 
 {% endblock content %}

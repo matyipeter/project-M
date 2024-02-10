@@ -21,7 +21,7 @@
                   <a class="hover:text-gray-500" href="#footer">Kapcsolat</a>
               </li>
               <li>
-                  <a class="hover:text-gray-500 bg-yellow-300 p-4" href="#">Időpontfoglalás</a>
+                  <a class="hover:text-gray-500 bg-yellow-300 p-4" href="{% url 'main:foglalas' %}">Időpontfoglalás</a>
               </li>
           </ul>
       </div>
@@ -33,22 +33,28 @@
 </header>
 
 
-<div class="w-full h-full flex items-center justify-center big-image p-1 md:p-12">
-    <div class="text-white text-center">
-        <h2 class="md:text-4xl text-xl font-bold mb-4 text-red-500">Üdvözöllek a Nagykovácsi laborszolgáltatás weboldalán!</h2>
-        <p class="text-lg text-red-600">Foglald le időpontodat időben!</p>
-        <a href="#" class="mt-4 inline-block bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded"><i class="fa-solid fa-calendar-check"></i> Időpontfoglalás</a>
-        <div class="hidden md:block">
-            <h3>Rendelési idő</h3>
-            <div>Hétfő</div>
-            <div>Csütörtök</div>
+<div class="w-full h-full grid grid-cols-2 gap-2 big-image p-1 md:p-24">
+    <div class="text-center grid content-center text-xl">
+        <h2 class="text-blue-900 md:text-5xl p-2 mb-1">Nagykovácsi</h2>
+        <p class="text-red-500 md:text-4xl">Laborszolgáltatás</p>
+        <div class="hidden md:block mt-3">
+            <h3 class="text-xl text-blue-900">gyermekek és felnőttek teljes körű laborvizsgálata</h3>
         </div>
     </div>
+    <div class="text-white text-center">
+        <h2 class="md:text-4xl text-xl mb-4 text-red-600">Üdvözöllek a Nagykovácsi laborszolgáltatás weboldalán!</h2>
+        <p class="text-lg text-red-600">Foglald le időpontodat időben!</p>
+        <a href="{% url 'main:foglalas' %}" class="mt-4 inline-block bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded hidden md:inline-block"><i class="fa-solid fa-calendar-check"></i> Időpontfoglalás</a>
+    </div>
 </div>
+
+<div class="text-center">
+    <a href="{% url 'main:foglalas' %}" class="mt-4 inline-block bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded md:hidden"><i class="fa-solid fa-calendar-check"></i> Időpontfoglalás</a>
 </div>
+
 <h2 class="text-4xl font-bold text-center mt-8 mb-8" id="akt">Aktualitások</h2>
-<div class="aktualitasok grid grid-cols-1 md:grid-cols-2">
-    <div></div>
+<div class="aktualitasok grid grid-cols-1 md:grid-cols-2 justify-items-center" >
+    <div class="m-2"><iframe class="p-2 w-full" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fnagykovacsilaborszolgaltatas%2Fposts%2Fpfbid0u5QBzcyPUYySWxiLHM6swvXfwbNbLo7dC66AxSkDBrrY9awbnEAvNirMe8D2euvkl&show_text=true&width=500" width="500" height="572" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
     <div></div>
 </div>
 <main>
@@ -75,27 +81,5 @@
 
   </section>
 </main>
-
-
-
-
-  
-<footer id="#footer" class="bg-coral">
-  <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
-    <!-- Column 1: Logo and About -->
-    <div>
-        <h3 class="text-xl font-bold mb-4">Your Logo</h3>
-        <p class="text-white">A brief description of your company or website. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </div>
-    <div>
-        <h3>Kapcsolatfelvétel</h3>
-        <div class="flex space-x-3 text-white p-4">
-            <a href="#" class=""><i class="fa-solid fa-phone"></i> 06703250310</a>
-            <a href="#" class=""><i class="fa-regular fa-envelope"></i> nagykovacsilaborszolgaltatas@gmail.com</a>
-            <a href="#" class=""><i class="fa-solid fa-house-flag"></i><br>Kossuth Lajos u. 33. Nagykovácsi</a>
-        </div>
-    </div>
-  </div>
-</footer>
 
 {% endblock content %}
