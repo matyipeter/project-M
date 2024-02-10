@@ -4,6 +4,8 @@ from django.views.generic import View, TemplateView, ListView
 from datetime import datetime
 
 from .models import Appointment, Customer, Service
+from django.template.loader import render_to_string
+from django.core.mail import EmailMessage
 
 # Create your views here.
 
@@ -47,10 +49,28 @@ class Reserve(View):
         form = Customer(full_name=full_name, email=email)
         form.save()
 
+        message = render_to_string("main/email_temp.html", {
+            "name":full_name,
+            "honap":honap,
+            "nap":nap,
+            "idopont":idopont,
+            'protocol': 'https' if request.is_secure() else 'http',
+        })
+
+        n_email = EmailMessage("foglalás", message, to=[email])
+
+        if n_email.send():
+            print('Successful email sending')
+        else:
+            print('FAIL')
+            return redirect("main:error")
+
         appo = Appointment.objects.get(honap=honap, nap=nap, idopont=idopont)
         appo.customer = form
         appo.reserve()
         appo.save()
         return redirect("main:index")
         
+class Error(TemplateView):
+    template_name = "main/error.html"
 
