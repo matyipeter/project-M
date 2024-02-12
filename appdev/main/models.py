@@ -27,6 +27,7 @@ class Appointment(models.Model):
 class Service(models.Model):
     name = models.CharField(max_length=50)
     description = models.TextField(max_length=500)
+    filenev = models.CharField(max_length=50, default="macska.jpg")
         
 
 

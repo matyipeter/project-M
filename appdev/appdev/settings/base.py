@@ -87,7 +87,6 @@ EMAIL_HOST_USER = 'petermatyi2004@gmail.com'
 EMAIL_HOST_PASSWORD = 'rbgoirtgiiijdtrm'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-PASSWORD_RESET_TIMEOUT = 14400
 
 
 # Password validation

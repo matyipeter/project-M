@@ -74,3 +74,5 @@ class Reserve(View):
 class Error(TemplateView):
     template_name = "main/error.html"
 
+class Test(TemplateView):
+    template_name = "main/test.html"

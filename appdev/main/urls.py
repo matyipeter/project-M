@@ -9,4 +9,5 @@ urlpatterns = [
     path("foglalas/<str:honap>/<int:nap>", views.Idopontok2.as_view(), name="foglalas2"),
     path("foglalas/<str:honap>/<int:nap>/<str:idopont>", views.Reserve.as_view(), name="reserve"),
     path("error/", views.Error.as_view(), name="error"),
+    path("test/", views.Test.as_view(), name="test"),
 ]

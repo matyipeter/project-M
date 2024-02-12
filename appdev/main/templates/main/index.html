@@ -3,14 +3,14 @@
 
 
 {% block content %}
-<header class="bg-white">
-    <nav class="flex justify-between items-center w-[92%]  mx-auto">
+<header class="bg-white md:fixed md:top-0 md:left-0 md:w-full">
+    <nav class="flex justify-between items-center w-[92%] mx-auto">
       <div>
-          <img class="cursor-pointer h-28" src="{% static 'main/images/nkl-logo.png' %}" alt="...">
+          <img class="cursor-pointer h-28" src="{% static 'main/images/nkl-logo.png' %}" alt="logo">
       </div>
       <div
-          class="nav-links duration-500 md:static absolute bg-white md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto  w-full flex px-5 opacity-80">
-          <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
+          class="nav-links duration-500 md:static absolute bg-white md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex px-5 opacity-90 ">
+          <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8 font-semibold text-blue-900">
               <li>
                   <a class="hover:text-gray-500" href="#arak">Árazás</a>
               </li>
@@ -21,7 +21,7 @@
                   <a class="hover:text-gray-500" href="#footer">Kapcsolat</a>
               </li>
               <li>
-                  <a class="hover:text-gray-500 bg-yellow-300 p-4" href="{% url 'main:foglalas' %}">Időpontfoglalás</a>
+                  <a class="hover:bg-red-700 text-white bg-red-400 p-4" href="{% url 'main:foglalas' %}">Időpontfoglalás</a>
               </li>
           </ul>
       </div>
@@ -29,11 +29,10 @@
           <ion-icon onclick="onToggleMenu(this)" name="menu" class="text-3xl cursor-pointer md:hidden"></ion-icon>
       </div>
     </nav>
-    
 </header>
 
 
-<div class="w-full h-full grid grid-cols-2 gap-2 big-image p-1 md:p-24">
+<div class="w-full h-full grid grid-cols-2 gap-2 big-image p-1 md:p-24 md:mt-16">
     <div class="text-center grid content-center text-xl">
         <h2 class="text-blue-900 md:text-5xl p-2 mb-1">Nagykovácsi</h2>
         <p class="text-red-500 md:text-4xl">Laborszolgáltatás</p>
@@ -41,45 +40,52 @@
             <h3 class="text-xl text-blue-900">gyermekek és felnőttek teljes körű laborvizsgálata</h3>
         </div>
     </div>
-    <div class="text-white text-center">
-        <h2 class="md:text-4xl text-xl mb-4 text-blue-900">Üdvözöllek a Nagykovácsi laborszolgáltatás weboldalán!</h2>
-        <p class="text-lg text-red-600">Foglald le időpontodat időben!</p>
-        <a href="{% url 'main:foglalas' %}" class="mt-4 inline-block bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded hidden md:inline-block"><i class="fa-solid fa-calendar-check"></i> Időpontfoglalás</a>
+    <div class="text-center">
+        <h3 class="md:text-3xl text-lg mb-4 text-blue-900">Rendelések időpontjai:</h3>
+        <div class="bg-yellow-500 text-bold text-sm md:text-lg md:w-[50%] m-auto p-4 mb-6 text-white">Hétfő: 6:30 - 10:00</div>
+        <div class="bg-yellow-500 text-bold text-sm md:text-lg md:w-[50%] m-auto p-4 mb-6 text-white">Csütörtök: 6:30 - 10:00</div>
+        <a href="{% url 'main:foglalas' %}" class="mt-4 inline-block bg-red-400 hover:bg-red-600 text-white font-bold py-2 px-4 rounded hidden md:inline-block"><i class="fa-solid fa-calendar-check"></i> Időpontfoglalás</a>
+    </div>
+    <div class="text-center">
+        
     </div>
 </div>
 
 <div class="text-center">
-    <a href="{% url 'main:foglalas' %}" class="mt-4 inline-block bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded md:hidden"><i class="fa-solid fa-calendar-check"></i> Időpontfoglalás</a>
+    <a href="{% url 'main:foglalas' %}" class="mt-4 inline-block bg-red-400 hover:bg-red-600 text-white font-bold py-2 px-4 rounded md:hidden"><i class="fa-solid fa-calendar-check"></i> Időpontfoglalás</a>
 </div>
-
-<h2 class="text-4xl font-bold text-center mt-8 mb-8" id="akt">Aktualitások</h2>
-<div class="aktualitasok grid grid-cols-1 md:grid-cols-2 justify-items-center" >
-    <div class="m-2"><iframe class="p-2 w-full" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fnagykovacsilaborszolgaltatas%2Fposts%2Fpfbid0u5QBzcyPUYySWxiLHM6swvXfwbNbLo7dC66AxSkDBrrY9awbnEAvNirMe8D2euvkl&show_text=true&width=500" width="500" height="572" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
-    <div></div>
-</div>
-<main>
-  <section class="container mx-auto p-8">
-    <h2 class="text-4xl font-bold text-center mb-8" id="vizsgalatok">Vizsgálatok</h2>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {% for service in object_list %}
-          <div class="bg-white rounded-lg overflow-hidden shadow-md">
-              <img src="{% static 'main/images/nklabor.jpg' %}" alt="Service 1" class="w-full h-40 object-cover">
-              <div class="p-4">
-                  <h3 class="text-xl font-semibold mb-2 text-red-500">{{service.name}}</h3>
-                  <p class="text-gray-600">Description of the service goes here. You can provide details about what this service offers and its benefits.</p>
-              </div>
-          </div>
-        {% endfor %}
+<main class="w-[80%] m-auto">
+    <h2 class="text-4xl font-bold text-center mt-8 mb-8 text-blue-900" id="akt">Miért válasszon minket?</h2>
+    <div class="aktualitasok grid grid-cols-1 md:grid-cols-2 justify-items-center gap-3">
+        <div class="bg-white p-6 rounded-lg shadow-md grid grid-rows-2 justify-items-center text-blue-900"><i class="fa-solid fa-stopwatch text-6xl mb-4"></i> <span class="text-2xl">Várakozás nélkül, beutaló nem szükséges</span></div>
+        <div class="bg-white p-6 rounded-lg shadow-md grid grid-rows-2 justify-items-center text-blue-900"><i class="fa-solid fa-business-time text-6xl mb-4"></i> <span class="text-2xl">Az eredmények többsége 1-2 munkanapon belül elkészül</span></div>
+        <div class="bg-white p-6 rounded-lg shadow-md grid grid-rows-2 justify-items-center text-blue-900"><i class="fa-solid fa-envelope text-6xl mb-4"></i> <span class="text-2xl">Leleteit az Ön e-mail címére továbbítjuk</span></div>
+        <div class="bg-white p-6 rounded-lg shadow-md grid grid-rows-2 justify-items-center text-blue-900"><i class="fa-solid fa-fire text-6xl mb-4"></i> <span class="text-2xl">Vizsgálati palettánk a hazai szolgáltatók közül a legszélesebb</span></div>
     </div>
-  </section>
-  <section>
-    <h2 class="text-4xl font-bold text-center mb-8" id="arak">Árak</h2>
-  </section>
 
-  <section class="container mx-auto p-8">
+    <section class="container mx-auto p-8">
+        <h2 class="text-4xl font-bold text-center mb-8 mt-8 text-blue-900" id="vizsgalatok">Vizsgálatok</h2>
 
-  </section>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for service in object_list %}
+            <div class="bg-white rounded-lg overflow-hidden shadow-md">
+                <img src="static/main/images/{{service.filenev}}" alt="Service 1" class="w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold mb-2 text-blue-900">{{service.name}}</h3>
+                    <p class="text-gray-600">{{service.description}}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section>
+        <h2 class="text-4xl font-bold text-center mb-8" id="arak">Árak</h2>
+    </section>
+
+    <section class="container mx-auto p-8">
+
+    </section>
 </main>
 
 {% endblock content %}
