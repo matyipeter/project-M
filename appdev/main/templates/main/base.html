@@ -15,8 +15,9 @@
     <link rel="icon" type="image/x-icon" href="static/main/images/favicon.ico">
     <link rel="stylesheet" href="{% static "main/css/output.css" %}">
 
-    <script defer src="{% static 'main/js/script.js' %}"></script>
+    
 
+    <!-- GOOGLE FONTS-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
@@ -27,7 +28,9 @@
     <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
 
-    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <!-- Javascript-->
+    <script defer src="{% static 'main/js/script.js' %}"></script>
+    <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
 
     {% block head %}{% endblock head %}
 </head>
@@ -44,18 +47,19 @@
           </div>
           <div class="grid grid-cols-1 gap-2 sm:gap-3 sm:grid-cols-2 lg:grid-cols-3 text-center">
               <div>
-                  <h2 class="mb-6 text-sm font-semibold text-white text-lg"><i class="fa-solid fa-phone"></i> +36 70 325 0310</h2>
+                  <h2 class="mb-6 text-sm font-semibold text-white"><i class="fa-solid fa-phone"></i> +36 70 325 0310</h2>
               </div>
               <div>
-                  <h2 class="mb-6 text-sm font-semibold text-white text-lg"><i class="fa-regular fa-envelope"></i> nagykovacsilaborszolgaltatas@gmail.com</h2>
+                  <h2 class="mb-6 text-sm font-semibold text-white"><i class="fa-regular fa-envelope"></i> nagykovacsilaborszolgaltatas@gmail.com</h2>
               </div>
               <div>
-                  <h2 class="mb-6 text-sm font-semibold text-white text-lg"><i class="fa-solid fa-location-dot"></i> Kossuth Lajos u. 33., Nagykovácsi</h2>
+                  <h2 class="mb-6 text-sm font-semibold text-white"><i class="fa-solid fa-location-dot"></i> Kossuth Lajos u. 33., Nagykovácsi</h2>
               </div>
           </div>
       </div>
       <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"/>
     </div>
+    <p class="hidden top-[9%]"></p>
 </footer>
 </body>
 </html>

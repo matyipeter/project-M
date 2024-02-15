@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.generic import View, TemplateView, ListView
 from datetime import datetime
+from django.http import HttpResponseRedirect
 
 from .models import Appointment, Customer, Service
 from django.template.loader import render_to_string
@@ -58,6 +59,7 @@ class Reserve(View):
         })
 
         n_email = EmailMessage("foglalás", message, to=[email])
+        n_email.content_subtype = "html"
 
         if n_email.send():
             print('Successful email sending')
@@ -69,10 +71,13 @@ class Reserve(View):
         appo.customer = form
         appo.reserve()
         appo.save()
-        return redirect("main:index")
+        return HttpResponseRedirect(reverse("main:thanks"))
         
 class Error(TemplateView):
     template_name = "main/error.html"
 
 class Test(TemplateView):
     template_name = "main/test.html"
+
+class Thanks(TemplateView):
+    template_name = "main/thanks.html"

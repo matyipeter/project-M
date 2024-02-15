@@ -1,8 +1,10 @@
 {% extends "main/base.html" %}
+{% load static %}
 
 {% block content %}
 
 <div class="container mx-auto mt-8 p-8">
+  <div class="grid grid-cols-1 md:grid-cols-2">
     <h1 class="text-4xl font-bold mb-8">Az időpontod: <span>{{honap}} {{nap}}. {{idopont}}</span></h1>
     <form class="w-full max-w-sm" method="POST">
         {% csrf_token %}
@@ -33,11 +35,13 @@
           </div>
         </div>
     </form>
-    <div class="p-6 m-6">
-      <i>Amennyiben ön nem rendelkezik email címmel, kérjük telefonon foglalja le időpontját.</i>
-      <i>Vérvételi napokon kérjük csak rendelési idő után telefonáljanak, 
-            mert nem tudjuk felvenni a telefont. Köszönjük megértésüket!</i>
-    </div>
+  </div>
+  <div class="p-6 m-6">
+    <i>Amennyiben ön nem rendelkezik email címmel, kérjük telefonon foglalja le időpontját.</i>
+    <i>Vérvételi napokon kérjük csak rendelési idő után telefonáljanak, 
+          mert nem tudjuk felvenni a telefont. Köszönjük megértésüket!</i>
+  </div>
+  <img class="w-[50%] m-auto rounded" src="{% static 'main/images/viragok.jpg' %}" alt="">
 </div>
 
 {% endblock content %}
