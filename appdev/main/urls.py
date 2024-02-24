@@ -11,4 +11,5 @@ urlpatterns = [
     path("error/", views.Error.as_view(), name="error"),
     path("test/", views.Test.as_view(), name="test"),
     path("thanks/", views.Thanks.as_view(), name="thanks"),
+    path("uzenetx/", views.Uzenet.as_view(), name="uzenet"),
 ]

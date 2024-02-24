@@ -30,6 +30,13 @@ class Service(models.Model):
     filenev = models.CharField(max_length=50, default="macska.jpg")
         
 
+class Message(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    message = models.TextField(max_length=5000)
+
+    def __str__(self):
+        return self.name
 
     
 

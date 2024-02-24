@@ -4,7 +4,7 @@ from django.views.generic import View, TemplateView, ListView
 from datetime import datetime
 from django.http import HttpResponseRedirect
 
-from .models import Appointment, Customer, Service
+from .models import Appointment, Customer, Service, Message
 from django.template.loader import render_to_string
 from django.core.mail import EmailMessage
 
@@ -72,7 +72,20 @@ class Reserve(View):
         appo.reserve()
         appo.save()
         return HttpResponseRedirect(reverse("main:thanks"))
-        
+    
+
+class Uzenet(View):
+
+    def post(self, request):
+        name = request.POST["name"]
+        email = request.POST["email"]
+        message = request.POST["uzenet"]
+
+        new = Message(name=name, email=email, message=message)
+        new.save()
+        return redirect("main:thanks")
+
+
 class Error(TemplateView):
     template_name = "main/error.html"
 

@@ -1,16 +1,17 @@
 {% extends "main/base.html" %}
+{% block title %}Időpontfoglalás{% endblock title %}
 
 {% block content %}
-<a href="/" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+<a href="/" class="bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
     <i class="fa-solid fa-house"></i>
 </a>
 <div class="container mx-auto mt-8 p-8">
-    <h1 class="text-center m-6 p-6 text-5xl">{{honap}} {{nap}}</h1>
-    <h2 class="text-4xl font-bold mb-8">Elérhető időpontok:</h1>
+    <h1 class="text-center m-6 p-6 text-5xl text-blue-900">{{honap}} {{nap}}</h1>
+    <h2 class="text-4xl font-bold mb-8 text-blue-900">Elérhető időpontok:</h1>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {% for appointment in object_list %}
-            <a href="{% url 'main:reserve' honap nap appointment %}" class="rounded-lg overflow-hidden shadow-md p-4 hover:bg-white hover:text-blue-500 text-white text-xl bg-teal-500 text-myred w-[80%]">{{appointment}}</a>
+            <a href="{% url 'main:reserve' honap nap appointment %}" class="rounded-lg overflow-hidden shadow-md p-4 hover:bg-white hover:text-blue-900 text-white text-xl bg-blue-900 w-[80%]">{{appointment}}</a>
         {% endfor %}
     </div>
     <div class="informacio mt-24">
