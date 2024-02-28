@@ -1,12 +1,13 @@
 {% extends "main/base.html" %}
 {% load static %}
 
+{% block title %}Nagykovácsi laborszolgáltatás | vérvétel{% endblock title %}
 
 {% block content %}
 <header class="bg-white md:fixed md:top-0 md:left-0 md:w-full">
     <nav class="flex justify-between items-center w-[92%] mx-auto">
       <div>
-          <img class="cursor-pointer h-28" src="{% static 'main/images/nkl-logo.png' %}" alt="logo">
+          <a href="/"><img class="cursor-pointer h-28" src="{% static 'main/images/nkl-logo.png' %}" alt="logo"></a>
       </div>
       <div
           class="nav-links duration-500 md:static absolute bg-white md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex px-5 opacity-90">
@@ -54,16 +55,16 @@
 <div class="text-center">
     <a href="{% url 'main:foglalas' %}" class="mt-4 inline-block bg-red-400 hover:bg-red-600 text-white font-bold py-2 px-4 rounded md:hidden"><i class="fa-solid fa-calendar-check"></i> Időpontfoglalás</a>
 </div>
-<main class="w-[80%] m-auto">
+<main class="w-[90%] m-auto">
     <h2 class="text-4xl font-bold text-center mt-8 mb-8 text-blue-900" id="akt">Miért válasszon minket?</h2>
-    <div class="aktualitasok grid grid-cols-1 md:grid-cols-2 justify-items-center gap-3">
+    <div class="aktualitasok grid grid-cols-1 md:grid-cols-2 justify-items-center gap-3 w-[80%] m-auto">
         <div class="bg-white p-6 rounded-lg shadow-md grid grid-rows-2 justify-items-center text-blue-900"><i class="fa-solid fa-stopwatch text-6xl mb-4"></i> <span class="text-2xl">Várakozás nélkül, beutaló nem szükséges</span></div>
         <div class="bg-white p-6 rounded-lg shadow-md grid grid-rows-2 justify-items-center text-blue-900"><i class="fa-solid fa-business-time text-6xl mb-4"></i> <span class="text-2xl">Az eredmények többsége 1-2 munkanapon belül elkészül</span></div>
         <div class="bg-white p-6 rounded-lg shadow-md grid grid-rows-2 justify-items-center text-blue-900"><i class="fa-solid fa-envelope text-6xl mb-4"></i> <span class="text-2xl">Leleteit az Ön e-mail címére továbbítjuk</span></div>
         <div class="bg-white p-6 rounded-lg shadow-md grid grid-rows-2 justify-items-center text-blue-900"><i class="fa-solid fa-fire text-6xl mb-4"></i> <span class="text-2xl">Vizsgálati palettánk a hazai szolgáltatók közül a legszélesebb</span></div>
     </div>
 
-    <section class="container mx-auto p-8">
+    <section class="container mx-auto p-4">
         <h2 class="text-4xl font-bold text-center mb-8 mt-8 text-blue-900" id="vizsgalatok">Vizsgálatok</h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -81,9 +82,9 @@
 
     <section class="mb-6">
         <h2 class="text-4xl font-bold text-center mb-8 mt-8 text-blue-900" id="arak">Árak</h2>
-        <div class="grid grid-cols-1 gap-2 text-center text-white  text-xl md:text-3xl justify-items-center">
-            <div class="bg-yellow-500 w-[50%] p-3">Mintavétel: <span>3200FT</span></div>
-            <div class="bg-yellow-500 w-[50%] p-3">Lelet kiküldése: <span>1000FT</span></div>
+        <div class="grid grid-cols-1 gap-2 text-center text-white text-xl md:text-3xl justify-items-center">
+            <div class="bg-yellow-500 md:w-[50%] p-3">Mintavétel: <span>3200FT</span></div>
+            <div class="bg-yellow-500 md:w-[50%] p-3">Lelet kiküldése: <span>1000FT</span></div>
         </div>
 
     </section>
