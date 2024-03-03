@@ -22,7 +22,7 @@ class Appointment(models.Model):
         self.free = False
 
     def __str__(self):
-        return self.honap
+        return self.customer.full_name
     
 class Service(models.Model):
     name = models.CharField(max_length=50)

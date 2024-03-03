@@ -7,7 +7,7 @@
 <header class="bg-white md:fixed md:top-0 md:left-0 md:w-full">
     <nav class="flex justify-between items-center w-[92%] mx-auto">
       <div>
-          <a href="/"><img class="cursor-pointer h-28" src="{% static 'main/images/nkl-logo.png' %}" alt="logo"></a>
+          <a href="/"><img class="cursor-pointer h-32" src="{% static 'main/images/nkl-logo.png' %}" alt="logo"></a>
       </div>
       <div
           class="nav-links duration-500 md:static absolute bg-white md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex px-5 opacity-90">
@@ -32,9 +32,9 @@
     </nav>
 </header>
 
-
 <div class="w-full h-full grid grid-cols-2 gap-2 big-image p-1 md:p-24 md:mt-16">
-    <div class="text-center grid content-center text-xl">
+    
+    <div class="text-center grid content-center text-xl content-frame rounded p-3">
         <h2 class="text-blue-900 md:text-5xl p-2 mb-1">Nagykovácsi</h2>
         <p class="text-red-500 md:text-4xl">Laborszolgáltatás</p>
         <div class="hidden md:block mt-3">
@@ -55,6 +55,20 @@
 <div class="text-center">
     <a href="{% url 'main:foglalas' %}" class="mt-4 inline-block bg-red-400 hover:bg-red-600 text-white font-bold py-2 px-4 rounded md:hidden"><i class="fa-solid fa-calendar-check"></i> Időpontfoglalás</a>
 </div>
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li><div id="alert-border-3" class="flex items-center p-4 mb-4 text-green-800 border-t-4 border-green-300 bg-green-100 justify-center" role="alert">
+            <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+            </svg>
+            <div class="ms-3 text-sm font-medium">
+            {{message}}
+            </div>
+        </div></li>
+        {% endfor %}
+    </ul>
+{% endif %}
 <main class="w-[90%] m-auto">
     <h2 class="text-4xl font-bold text-center mt-8 mb-8 text-blue-900" id="akt">Miért válasszon minket?</h2>
     <div class="aktualitasok grid grid-cols-1 md:grid-cols-2 justify-items-center gap-3 w-[80%] m-auto">
@@ -84,7 +98,7 @@
         <h2 class="text-4xl font-bold text-center mb-8 mt-8 text-blue-900" id="arak">Árak</h2>
         <div class="grid grid-cols-1 gap-2 text-center text-white text-xl md:text-3xl justify-items-center">
             <div class="bg-yellow-500 md:w-[50%] p-3">Mintavétel: <span>3200FT</span></div>
-            <div class="bg-yellow-500 md:w-[50%] p-3">Lelet kiküldése: <span>1000FT</span></div>
+            <div class="bg-yellow-500 md:w-[50%] p-3">Mintaátvétel: <span>1000FT</span></div>
         </div>
 
     </section>

@@ -7,7 +7,7 @@ from django.http import HttpResponseRedirect
 from .models import Appointment, Customer, Service, Message
 from django.template.loader import render_to_string
 from django.core.mail import EmailMessage
-
+from django.contrib import messages
 # Create your views here.
 
 class Index(ListView):
@@ -83,7 +83,8 @@ class Uzenet(View):
 
         new = Message(name=name, email=email, message=message)
         new.save()
-        return redirect("main:thanks")
+        messages.success(request, "Sikeres üzenetküldés", extra_tags="text-center p-6 m-6 bg-green-500")
+        return render(request, "main/index.html", {"uzenet":True})
 
 
 class Error(TemplateView):

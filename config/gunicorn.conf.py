@@ -1,4 +1,4 @@
-bind = "0.0.0.0:8000"
+bind = "unix:/run/gunicorn.sock"
 command = "/app2/env/bin/gunicorn"
 pythonpath = "/app2/appdev"
 workers = 3

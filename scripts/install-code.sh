@@ -10,7 +10,6 @@ set -e
 echo -e "\n>>>Stop gunicorn"
 cd /app2/
 source env/bin/activate
-bash scripts/super.sh stop gunicorn
 
 echo -e "\n>>>Delete old files"
 rm -rf /app2/appdev
@@ -36,11 +35,10 @@ echo -e "\n>>>Collect staticfiles"
 ./manage.py collectstatic
 cd ..
 
-echo -e "\n>>>Re-read Supervisord config"
-bash scripts/super.sh reread
+echo -e "\n>>>Re-read Systemd config"
 
 echo -e "\n>>>Start gunicorn"
-bash scripts/super.sh start gunicorn
+systemctl restart gunicorn
 
 EOF
 

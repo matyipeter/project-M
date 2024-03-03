@@ -2,6 +2,5 @@
 const navLinks = document.querySelector(".nav-links");
 
 function onToggleMenu(e){
-  navLinks.classList.toggle("top-[9%]")
-  console.log("geci")
+  navLinks.classList.toggle("top-[12%]")
 }
